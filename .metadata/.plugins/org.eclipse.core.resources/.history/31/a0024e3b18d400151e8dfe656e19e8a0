@@ -1,0 +1,72 @@
+package com.cscc.csci2994.assignment1;
+
+
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
+
+
+public class TodoList {
+
+	public static void main(String[] args){
+		Scanner scanner = new Scanner(System.in);
+		String userInput = "";
+		LinkedHashMap<String, String> todoList = new LinkedHashMap<String, String>();
+		
+		do{
+			System.out.println("Enter a choice");
+			System.out.println("1. Add a task");
+			System.out.println("2. Remove a task");
+			System.out.println("3. Update a task");
+			System.out.println("4. List tasks");
+			System.out.println("0. Exit");
+			userInput = scanner.nextLine();
+
+			
+			switch (userInput){
+				case "1":
+					//Adding a Task , and the description of the task
+					System.out.println("Enter the name of the task");
+					String taskName = scanner.nextLine();
+					System.out.println("Enter the task description for the task");
+					String taskDescription = scanner.nextLine();
+					todoList.put(taskName, taskDescription);
+					System.out.println(" ");
+					break;
+				case "2":
+					//Removing a Task
+					System.out.println("Enter the name of the task you wish to remove");
+					String removeTaskName = scanner.nextLine();
+					todoList.remove(removeTaskName);
+					break;
+				case "3":
+					//Updating a task
+					System.out.println("Enter the task you wish to update");
+					String updateTaskName = scanner.nextLine();
+					System.out.println("Enter the new decription for the task");
+					String newTaskDescription = scanner.nextLine();
+					todoList.put(updateTaskName, newTaskDescription);
+					break;
+				case "4":
+					//Listing all the task
+					int index = 0;
+					System.out.println("	Todo Lists");
+					for(Entry<String, String> entry: todoList.entrySet()){
+						String singleTasks = entry.getKey();
+						index++;
+						System.out.println(index + ". "+ singleTasks);
+						
+					}
+					break;		
+			}
+			
+			
+		}while(!userInput.equals("0"));
+		
+	}
+
+}
