@@ -1,3 +1,12 @@
+//==========================================================
+//	NAME: CHIDI EMEH
+//	COURSE: CSCI 2449 (ANDROID PROGRAMMING FUNDAMENTALS)
+//	FILENAME: Contact.java
+//	DATE:	3/30/2016
+//	DESCRIPTION: Exercise 8
+//
+//==========================================================
+
 package com.chidiemeh.week7;
 
 public class Contact {
