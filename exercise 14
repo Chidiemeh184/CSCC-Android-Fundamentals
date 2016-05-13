@@ -1,0 +1,56 @@
+
+ * Created by chidi on 4/28/2016.
+ */
+
+class Todo {
+    private String body;
+    private boolean done;
+    private int id;
+    private int priority;
+    private String title;
+
+    public String toString() {
+
+        return " " + body;
+    }
+}
+
+class TodoCollection extends HashMap<String, Todo[]>{};
+
+
+public class Main {
+    public  static void main(String[] args){
+
+        String jsonData = "{
+                \"todos\": [
+        {
+            \"body\": \"Walk the dog\",
+                \"done\": false,
+                \"id\": 0,
+                \"priority\": 3,
+                \"title\": \"dog\"
+        },
+        {
+            \"body\": \"Pay the bills\",
+                \"done\": false,
+                \"id\": 1,
+                \"priority\": 1,
+                \"title\": \"bills\"
+        }
+        ]
+        }";
+
+        Gson gson = new Gson();
+
+        TodoCollection todo  = gson.fromJson(jsonData, TodoCollection.class);
+        for(String key: todos.keySet()){
+            Todo[] todoArray = todos.get(key);
+            for(Todo todoItem: todoArray){
+                System.out.println(todoItem);
+            }
+        }
+
+        String res = gson.toJson(todos);
+        System.out.println(res);
+    }
+}
